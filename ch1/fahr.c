@@ -3,26 +3,25 @@
 /* Prints Fahrenheit to Celsius tables
     for fahr/cels in (0,20,...,300) */
 
+#define LOWER 0
+#define STEP  20
+#define UPPER 300
+
 main()
 {
   float fahr, cels;
-  int lower, upper, step;
-
-  lower = 0;
-  upper = 300;
-  step = 20;
 
   printf("Fahrenheit to Celsius\n");
-  fahr = lower;
-  while (fahr <= upper) {
+  fahr = LOWER;
+  while (fahr <= UPPER) {
     cels = (5.0 / 9.0) * (fahr - 32.0);
-    printf("%3.0f %6.1f\n", fahr, cels);
-    fahr = fahr + step;
+    printf("%6.0f %6.1f\n", fahr, cels);
+    fahr = fahr + STEP;
   }
 
   printf("Celsius to Fahrenheit\n");
-  for (cels = upper; cels >= lower; cels = cels - step) {
+  for (cels = UPPER; cels >= LOWER; cels = cels - STEP) {
     fahr = ((9.0 / 5.0) * cels) + 32.0;
-    printf("%3.0f %6.1f\n", cels, fahr);
+    printf("%6.0f %6.1f\n", cels, fahr);
   }
 }
